@@ -1,4 +1,6 @@
 import mplfinance as mpf
+import matplotlib
+matplotlib.use('Agg')
 
 # GLOBAL VARIABLES
 
