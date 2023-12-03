@@ -5,15 +5,17 @@ from candlestick import download_image
 
 start_time = time.time()
 
-dw1 = pd.read_csv('../scripts/dw1.csv')
-dw2 = pd.read_csv('../scripts/dw2.csv')
-dw3 = pd.read_csv('../scripts/dw3.csv')
-dw4 = pd.read_csv('../scripts/dw4.csv')
+dw1    = pd.read_csv('../scripts/dw1.csv')
+dw2    = pd.read_csv('../scripts/dw2.csv')
+dw3    = pd.read_csv('../scripts/dw3.csv')
+dw4    = pd.read_csv('../scripts/dw4.csv')
+myport = pd.read_csv('../scripts/myport.csv')
 
-list_dw1 = list(dw1['CODE'])
-list_dw2 = list(dw2['CODE'])
-list_dw3 = list(dw3['CODE'])
-list_dw4 = list(dw4['CODE'])
+list_dw1    = list(dw1['CODE'])
+list_dw2    = list(dw2['CODE'])
+list_dw3    = list(dw3['CODE'])
+list_dw4    = list(dw4['CODE'])
+list_myport = list(myport['CODE'])
 
 # list_dw = list_dw1 + list_dw2 + list_dw3 + list_dw4
 
@@ -114,6 +116,38 @@ for script in list_dw3:
 
 
 for script in list_dw4:
+    try:
+        data_hourly = yf.download(script, period="3mo", interval="1h")
+        print(f"downloading chart for {script} in hourly tf...")
+        download_image('hourly', data_hourly, script, 'dw4')
+        print(f"downloaded chart for {script} in hourly tf!")
+    except:
+        print("Hourly Error: ", script)
+    try:
+        data_daily = yf.download(script, period="1y", interval="1d")
+        print(f"downloading chart for {script} in daily tf...")
+        download_image('daily', data_daily, script, 'dw4')
+        print(f"downloaded chart for {script} in daily tf!")
+    except:
+        print("Daily Error: ", script)
+    try:
+        data_weekly = yf.download(script, period="5y", interval="1wk")
+        print(f"downloading chart for {script} in weekly tf...")
+        download_image('weekly', data_weekly, script, 'dw4')
+        print(f"downloaded chart for {script} in weekly tf!")
+    except:
+        print("Weekly Error: ", script)
+    try:
+        data_monthly = yf.download(script, period="10y", interval="1mo")
+        print(f"downloading chart for {script} in monthly tf...")
+        download_image('monthly', data_monthly, script, 'dw4')
+        print(f"downloaded chart for {script} in monthly tf!")
+    except:
+        print("Monthly Error: ", script)
+
+
+
+for script in list_myport:
     try:
         data_hourly = yf.download(script, period="3mo", interval="1h")
         print(f"downloading chart for {script} in hourly tf...")
