@@ -29,25 +29,25 @@ s       = mpf.make_mpf_style(**kwargs2)
 def download_image(timeframe, data, script, dw):
     save = dict(fname=f"ohlc-charts/{dw}/{script[:-3]}-{timeframe}.png", dpi=1000, pad_inches=0.25)
 
-    if timeframe == 'daily':
+    if timeframe == '3daily':
         try:
             mpf.plot(data, title=f"\n{script[:-3]}-{timeframe}", style=s, savefig=save, **kwargs1, figscale=figscale_daily, figratio=figratio_daily, figsize=figsize_daily)
         except:
             print(f"Error in creating plot for {script} in {timeframe} timeframe!")
     
-    if timeframe == 'hourly':
+    if timeframe == '4hourly':
         try:
             mpf.plot(data, title=f"\n{script[:-3]}-{timeframe}", style=s, savefig=save, **kwargs1, figscale=figscale_hourly, figratio=figratio_hourly, figsize=figsize_hourly)
         except:
             print(f"Error in creating plot for {script} in {timeframe} timeframe!")
         
-    if timeframe == 'weekly':
+    if timeframe == '2weekly':
         try:
             mpf.plot(data, title=f"\n{script[:-3]}-{timeframe}", style=s, savefig=save, **kwargs1, figscale=figscale_weekly, figratio=figratio_weekly, figsize=figsize_weekly)
         except:
             print(f"Error in creating plot for {script} in {timeframe} timeframe!")
         
-    if timeframe == 'monthly':
+    if timeframe == '1monthly':
         try:
             mpf.plot(data, title=f"\n{script[:-3]}-{timeframe}", style=s, savefig=save, **kwargs1, figscale=figscale_monthly, figratio=figratio_monthly, figsize=figsize_monthly)
         except:

@@ -23,28 +23,28 @@ for script in list_dw1:
     try:
         data_hourly = yf.download(script, period="3mo", interval="1h")
         print(f"downloading chart for {script} in hourly tf...")
-        download_image('hourly', data_hourly, script, 'dw1')
+        download_image('4hourly', data_hourly, script, 'dw1')
         print(f"downloaded chart for {script} in hourly tf!")
     except:
         print("Hourly Error: ", script)
     try:
         data_daily = yf.download(script, period="1y", interval="1d")
         print(f"downloading chart for {script} in daily tf...")
-        download_image('daily', data_daily, script, 'dw1')
+        download_image('3daily', data_daily, script, 'dw1')
         print(f"downloaded chart for {script} in daily tf!")
     except:
         print("Daily Error: ", script)
     try:
         data_weekly = yf.download(script, period="5y", interval="1wk")
         print(f"downloading chart for {script} in weekly tf...")
-        download_image('weekly', data_weekly, script, 'dw1')
+        download_image('2weekly', data_weekly, script, 'dw1')
         print(f"downloaded chart for {script} in weekly tf!")
     except:
         print("Weekly Error: ", script)
     try:
         data_monthly = yf.download(script, period="10y", interval="1mo")
         print(f"downloading chart for {script} in monthly tf...")
-        download_image('monthly', data_monthly, script, 'dw1')
+        download_image('1monthly', data_monthly, script, 'dw1')
         print(f"downloaded chart for {script} in monthly tf!")
     except:
         print("Monthly Error: ", script)
@@ -55,28 +55,28 @@ for script in list_dw2:
     try:
         data_hourly = yf.download(script, period="3mo", interval="1h")
         print(f"downloading chart for {script} in hourly tf...")
-        download_image('hourly', data_hourly, script, 'dw2')
+        download_image('4hourly', data_hourly, script, 'dw2')
         print(f"downloaded chart for {script} in hourly tf!")
     except:
         print("Hourly Error: ", script)
     try:
         data_daily = yf.download(script, period="1y", interval="1d")
         print(f"downloading chart for {script} in daily tf...")
-        download_image('daily', data_daily, script, 'dw2')
+        download_image('3daily', data_daily, script, 'dw2')
         print(f"downloaded chart for {script} in daily tf!")
     except:
         print("Daily Error: ", script)
     try:
         data_weekly = yf.download(script, period="5y", interval="1wk")
         print(f"downloading chart for {script} in weekly tf...")
-        download_image('weekly', data_weekly, script, 'dw2')
+        download_image('2weekly', data_weekly, script, 'dw2')
         print(f"downloaded chart for {script} in weekly tf!")
     except:
         print("Weekly Error: ", script)
     try:
         data_monthly = yf.download(script, period="10y", interval="1mo")
         print(f"downloading chart for {script} in monthly tf...")
-        download_image('monthly', data_monthly, script, 'dw2')
+        download_image('1monthly', data_monthly, script, 'dw2')
         print(f"downloaded chart for {script} in monthly tf!")
     except:
         print("Monthly Error: ", script)
@@ -87,28 +87,28 @@ for script in list_dw3:
     try:
         data_hourly = yf.download(script, period="3mo", interval="1h")
         print(f"downloading chart for {script} in hourly tf...")
-        download_image('hourly', data_hourly, script, 'dw3')
+        download_image('4hourly', data_hourly, script, 'dw3')
         print(f"downloaded chart for {script} in hourly tf!")
     except:
         print("Hourly Error: ", script)
     try:
         data_daily = yf.download(script, period="1y", interval="1d")
         print(f"downloading chart for {script} in daily tf...")
-        download_image('daily', data_daily, script, 'dw3')
+        download_image('3daily', data_daily, script, 'dw3')
         print(f"downloaded chart for {script} in daily tf!")
     except:
         print("Daily Error: ", script)
     try:
         data_weekly = yf.download(script, period="5y", interval="1wk")
         print(f"downloading chart for {script} in weekly tf...")
-        download_image('weekly', data_weekly, script, 'dw3')
+        download_image('2weekly', data_weekly, script, 'dw3')
         print(f"downloaded chart for {script} in weekly tf!")
     except:
         print("Weekly Error: ", script)
     try:
         data_monthly = yf.download(script, period="10y", interval="1mo")
         print(f"downloading chart for {script} in monthly tf...")
-        download_image('monthly', data_monthly, script, 'dw3')
+        download_image('1monthly', data_monthly, script, 'dw3')
         print(f"downloaded chart for {script} in monthly tf!")
     except:
         print("Monthly Error: ", script)
@@ -119,28 +119,28 @@ for script in list_dw4:
     try:
         data_hourly = yf.download(script, period="3mo", interval="1h")
         print(f"downloading chart for {script} in hourly tf...")
-        download_image('hourly', data_hourly, script, 'dw4')
+        download_image('4hourly', data_hourly, script, 'dw4')
         print(f"downloaded chart for {script} in hourly tf!")
     except:
         print("Hourly Error: ", script)
     try:
         data_daily = yf.download(script, period="1y", interval="1d")
         print(f"downloading chart for {script} in daily tf...")
-        download_image('daily', data_daily, script, 'dw4')
+        download_image('3daily', data_daily, script, 'dw4')
         print(f"downloaded chart for {script} in daily tf!")
     except:
         print("Daily Error: ", script)
     try:
         data_weekly = yf.download(script, period="5y", interval="1wk")
         print(f"downloading chart for {script} in weekly tf...")
-        download_image('weekly', data_weekly, script, 'dw4')
+        download_image('2weekly', data_weekly, script, 'dw4')
         print(f"downloaded chart for {script} in weekly tf!")
     except:
         print("Weekly Error: ", script)
     try:
         data_monthly = yf.download(script, period="10y", interval="1mo")
         print(f"downloading chart for {script} in monthly tf...")
-        download_image('monthly', data_monthly, script, 'dw4')
+        download_image('1monthly', data_monthly, script, 'dw4')
         print(f"downloaded chart for {script} in monthly tf!")
     except:
         print("Monthly Error: ", script)
@@ -151,28 +151,28 @@ for script in list_myport:
     try:
         data_hourly = yf.download(script, period="3mo", interval="1h")
         print(f"downloading chart for {script} in hourly tf...")
-        download_image('hourly', data_hourly, script, 'dw4')
+        download_image('4hourly', data_hourly, script, 'myport')
         print(f"downloaded chart for {script} in hourly tf!")
     except:
         print("Hourly Error: ", script)
     try:
         data_daily = yf.download(script, period="1y", interval="1d")
         print(f"downloading chart for {script} in daily tf...")
-        download_image('daily', data_daily, script, 'dw4')
+        download_image('3daily', data_daily, script, 'myport')
         print(f"downloaded chart for {script} in daily tf!")
     except:
         print("Daily Error: ", script)
     try:
         data_weekly = yf.download(script, period="5y", interval="1wk")
         print(f"downloading chart for {script} in weekly tf...")
-        download_image('weekly', data_weekly, script, 'dw4')
+        download_image('2weekly', data_weekly, script, 'myport')
         print(f"downloaded chart for {script} in weekly tf!")
     except:
         print("Weekly Error: ", script)
     try:
         data_monthly = yf.download(script, period="10y", interval="1mo")
         print(f"downloading chart for {script} in monthly tf...")
-        download_image('monthly', data_monthly, script, 'dw4')
+        download_image('1monthly', data_monthly, script, 'myport')
         print(f"downloaded chart for {script} in monthly tf!")
     except:
         print("Monthly Error: ", script)
@@ -181,4 +181,5 @@ for script in list_myport:
 
 end_time = time.time()
 elapsed_time = end_time - start_time
-print(f"Time taken: {elapsed_time} seconds")
+minutes = elapsed_time / 60
+print(f"Time taken: {minutes} seconds")
