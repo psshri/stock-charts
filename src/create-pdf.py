@@ -1,51 +1,57 @@
 import os
-import time
+from reportlab.pdfgen import canvas
 from PIL import Image
+import time
 
-image_files1 = [f for f in os.listdir('ohlc-charts/dw1') if f.endswith('.png')]
-image_files2 = [f for f in os.listdir('ohlc-charts/dw2') if f.endswith('.png')]
-image_files3 = [f for f in os.listdir('ohlc-charts/dw3') if f.endswith('.png')]
-image_files4 = [f for f in os.listdir('ohlc-charts/dw4') if f.endswith('.png')]
-image_files1 = sorted(image_files1)
-image_files2 = sorted(image_files2)
-image_files3 = sorted(image_files3)
-image_files4 = sorted(image_files4)
+def get_png_files_in_directory(directory):
+    png_files = [file for file in os.listdir(directory) if file.lower().endswith('.png')]
+    png_files = sorted(png_files)
+    return png_files
 
-image_files1_first = image_files1[:24]
-image_files1_second = image_files1[24:48]
-image_files1_third = image_files1[48:72]
-image_files1_fourth = image_files1[72:96]
-image_files1_fifth = image_files1[96:]
+def convert_images_to_pdf(image_directory, output_pdf):
+    image_paths = [os.path.join(image_directory, file) for file in get_png_files_in_directory(image_directory)]
+    c = canvas.Canvas(output_pdf)
+    
+    counter=0
+    for image_path in image_paths:
+        print(image_path)
+        print(counter)
+        counter+=1
+        img = Image.open(image_path)
+        img_width, img_height = img.size
+        
+        c.setPageSize((img_width, img_height))
+        c.drawInlineImage(img, 0, 0, width=img_width, height=img_height)
+        
+        c.showPage()
+    c.save()
 
+if __name__ == "__main__":
 
-image_files2_first = image_files2[:24]
-image_files2_second = image_files2[24:48]
-image_files2_third = image_files2[48:72]
-image_files2_fourth = image_files2[72:96]
-image_files2_fifth = image_files2[96:]
+    start_time = time.time()
+    
+    # Specify the directory containing PNG images
+    image_directory_dw1 = "ohlc-charts/dw1"
+    image_directory_dw2 = "ohlc-charts/dw2"
+    image_directory_dw3 = "ohlc-charts/dw3"
+    image_directory_dw4 = "ohlc-charts/dw4"
+    image_directory_myport = "ohlc-charts/myport"
 
-image_files3_first = image_files3[:24]
-image_files3_second = image_files3[24:48]
-image_files3_third = image_files3[48:72]
-image_files3_fourth = image_files3[72:96]
-image_files3_fifth = image_files3[96:]
+    # Specify the output PDF file
+    output_pdf_dw1 = "ohlc-charts/PDFs/dw1.pdf"
+    output_pdf_dw2 = "ohlc-charts/PDFs/dw2.pdf"
+    output_pdf_dw3 = "ohlc-charts/PDFs/dw3.pdf"
+    output_pdf_dw4 = "ohlc-charts/PDFs/dw4.pdf"
+    output_pdf_myport = "ohlc-charts/PDFs/myport.pdf"
 
-image_files4_first = image_files4[:24]
-image_files4_second = image_files4[24:48]
-image_files4_third = image_files4[48:72]
-image_files4_fourth = image_files4[72:96]
-image_files4_fifth = image_files4[96:]
+    # Convert images to PDF
+    convert_images_to_pdf(image_directory_dw1, output_pdf_dw1)
+    convert_images_to_pdf(image_directory_dw2, output_pdf_dw2)
+    convert_images_to_pdf(image_directory_dw3, output_pdf_dw3)
+    convert_images_to_pdf(image_directory_dw4, output_pdf_dw4)
+    convert_images_to_pdf(image_directory_myport, output_pdf_myport)
 
-im_list = []
-counter = 0
-for image in image_files1_first:
-    print(counter)
-    counter += 1
-    im = Image.open(f'ohlc-charts/dw1/{image}')
-    im = im.convert('RGB')
-    im_list.append(im)
-    # im.close()
-im_list[0].save('ohlc-charts/PDFs/test.pdf', save_all=True, append_images=im_list[1:])
-im.close()
-print('going to sleep now')
-time.sleep(100)
+    end_time = time.time()
+    elapsed_time = end_time - start_time
+    minutes = round(elapsed_time / 60, 2)
+    print(f"Time taken: {minutes} minutes")

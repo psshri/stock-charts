@@ -27,28 +27,28 @@ s       = mpf.make_mpf_style(**kwargs2)
 # save_dw1 = dict(fname="ohlc-charts/dw1/test1.png", dpi=1000, pad_inches=0.25)
 
 def download_image(timeframe, data, script, dw):
-    save = dict(fname=f"ohlc-charts/{dw}/{script[:-3]}-{timeframe}.png", dpi=1000, pad_inches=0.25)
+    save = dict(fname=f"ohlc-charts/{dw}/{script[:-3]}-{timeframe}.png", dpi=300, pad_inches=0.25)
 
     if timeframe == '3daily':
         try:
-            mpf.plot(data, title=f"\n{script[:-3]}-{timeframe}", style=s, savefig=save, **kwargs1, figscale=figscale_daily, figratio=figratio_daily, figsize=figsize_daily)
+            mpf.plot(data, title=f"\n{script[:-3]}-{timeframe[1:]}", style=s, savefig=save, **kwargs1, figscale=figscale_daily, figratio=figratio_daily, figsize=figsize_daily)
         except:
             print(f"Error in creating plot for {script} in {timeframe} timeframe!")
     
     if timeframe == '4hourly':
         try:
-            mpf.plot(data, title=f"\n{script[:-3]}-{timeframe}", style=s, savefig=save, **kwargs1, figscale=figscale_hourly, figratio=figratio_hourly, figsize=figsize_hourly)
+            mpf.plot(data, title=f"\n{script[:-3]}-{timeframe[1:]}", style=s, savefig=save, **kwargs1, figscale=figscale_hourly, figratio=figratio_hourly, figsize=figsize_hourly)
         except:
             print(f"Error in creating plot for {script} in {timeframe} timeframe!")
         
     if timeframe == '2weekly':
         try:
-            mpf.plot(data, title=f"\n{script[:-3]}-{timeframe}", style=s, savefig=save, **kwargs1, figscale=figscale_weekly, figratio=figratio_weekly, figsize=figsize_weekly)
+            mpf.plot(data, title=f"\n{script[:-3]}-{timeframe[1:]}", style=s, savefig=save, **kwargs1, figscale=figscale_weekly, figratio=figratio_weekly, figsize=figsize_weekly)
         except:
             print(f"Error in creating plot for {script} in {timeframe} timeframe!")
         
     if timeframe == '1monthly':
         try:
-            mpf.plot(data, title=f"\n{script[:-3]}-{timeframe}", style=s, savefig=save, **kwargs1, figscale=figscale_monthly, figratio=figratio_monthly, figsize=figsize_monthly)
+            mpf.plot(data, title=f"\n{script[:-3]}-{timeframe[1:]}", style=s, savefig=save, **kwargs1, figscale=figscale_monthly, figratio=figratio_monthly, figsize=figsize_monthly)
         except:
             print(f"Error in creating plot for {script} in {timeframe} timeframe!")

@@ -181,5 +181,5 @@ for script in list_myport:
 
 end_time = time.time()
 elapsed_time = end_time - start_time
-minutes = elapsed_time / 60
-print(f"Time taken: {minutes} seconds")
+minutes = round(elapsed_time / 60, 2)
+print(f"Time taken: {minutes} minutes")
