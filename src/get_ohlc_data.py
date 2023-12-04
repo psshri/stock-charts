@@ -1,7 +1,7 @@
 import time
 import pandas as pd
 import yfinance as yf
-from candlestick import download_image
+from create_candlestick_chart import download_image
 
 start_time = time.time()
 
