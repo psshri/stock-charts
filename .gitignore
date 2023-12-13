@@ -5,3 +5,4 @@ info.json
 ohlc-charts
 __pycache__/
 myport.csv
+*.ipynb
