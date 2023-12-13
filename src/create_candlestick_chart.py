@@ -24,8 +24,6 @@ kwargs1 = dict(type='candle', volume=True, datetime_format='%b-%y', xrotation=0)
 kwargs2 = dict(base_mpf_style='yahoo', edgecolor='white', gridcolor='white', facecolor='white', figcolor='white', gridstyle='',gridaxis='vertical')
 s       = mpf.make_mpf_style(**kwargs2)
 
-# save_dw1 = dict(fname="ohlc-charts/dw1/test1.png", dpi=1000, pad_inches=0.25)
-
 def download_image(timeframe, data, script, dw):
     save = dict(fname=f"ohlc-charts/{dw}/{script[:-3]}-{timeframe}.png", dpi=300, pad_inches=0.25)
 

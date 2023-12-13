@@ -22,8 +22,6 @@ list_dw3    = list(dw3['CODE'])
 list_dw4    = list(dw4['CODE'])
 list_myport = list(myport['CODE'])
 
-# list_dw = list_dw1 + list_dw2 + list_dw3 + list_dw4
-
 # GET OHLC DATA & CREATE CANDLESTICK CHART
 
 for script in list_dw1:
@@ -214,12 +212,6 @@ print("PDF creation completed!")
 # SEND PDF
 
 print("Sending PDFs to Telegram...")
-
-# pdf_file_path_dw1 = 'ohlc-charts/PDFs/dw1.pdf'
-# pdf_file_path_dw2 = 'ohlc-charts/PDFs/dw2.pdf'
-# pdf_file_path_dw3 = 'ohlc-charts/PDFs/dw3.pdf'
-# pdf_file_path_dw4 = 'ohlc-charts/PDFs/dw4.pdf'
-# pdf_file_path_myport = 'ohlc-charts/PDFs/myport.pdf'
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(sendit(output_pdf_dw1))
