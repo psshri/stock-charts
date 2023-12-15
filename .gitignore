@@ -6,3 +6,4 @@ ohlc-charts
 __pycache__/
 myport.csv
 *.ipynb
+parallelism.py
