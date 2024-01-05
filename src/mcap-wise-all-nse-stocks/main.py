@@ -8,17 +8,17 @@ import json
 from multiprocessing import Pool
 import os
 from create_pdf import convert_images_to_pdf
-import asyncio
-import nest_asyncio
-nest_asyncio.apply()
-from send_pdf import sendit
+# import asyncio
+# import nest_asyncio
+# nest_asyncio.apply()
+# from send_pdf import sendit
 
 start_index = 2100
-end_index = 2128
+end_index = 2138
 
 # start_index = 0
 # end_index = 100
-folder_name = f"{start_index}-{end_index}"
+folder_name = f"{start_index+1}-{end_index}"
 os.makedirs(f"ohlc-charts/{folder_name}", exist_ok=True)
 
 fileUrl ='https://assets.upstox.com/market-quote/instruments/exchange/complete.csv.gz'
@@ -66,13 +66,13 @@ if __name__ == "__main__":
 
     print("PDF creation completed!")
 
-    # SEND PDF
-    print("Sending PDFs to Telegram...")
+    # # SEND PDF
+    # print("Sending PDFs to Telegram...")
 
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(sendit(output_pdf))
+    # loop = asyncio.get_event_loop()
+    # loop.run_until_complete(sendit(output_pdf))
 
-    print("PDFs sent to Telegram!")
+    # print("PDFs sent to Telegram!")
 
 
 
