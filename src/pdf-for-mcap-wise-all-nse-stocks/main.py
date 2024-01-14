@@ -27,6 +27,10 @@ folder_name5 = "inConsolidationRN"
 folder_name6 = "downTrendButGoodCP"
 folder_name7 = "myPort"
 folder_name8 = "placeGTT"
+folder_name9 = "dw1"
+folder_name10 = "dw2"
+folder_name11 = "dw3"
+folder_name12 = "dw4"
 os.makedirs(f"ohlc-charts/{folder_name1}", exist_ok=True)
 os.makedirs(f"ohlc-charts/{folder_name2}", exist_ok=True)
 os.makedirs(f"ohlc-charts/{folder_name3}", exist_ok=True)
@@ -35,6 +39,10 @@ os.makedirs(f"ohlc-charts/{folder_name5}", exist_ok=True)
 os.makedirs(f"ohlc-charts/{folder_name6}", exist_ok=True)
 os.makedirs(f"ohlc-charts/{folder_name7}", exist_ok=True)
 os.makedirs(f"ohlc-charts/{folder_name8}", exist_ok=True)
+os.makedirs(f"ohlc-charts/{folder_name9}", exist_ok=True)
+os.makedirs(f"ohlc-charts/{folder_name10}", exist_ok=True)
+os.makedirs(f"ohlc-charts/{folder_name11}", exist_ok=True)
+os.makedirs(f"ohlc-charts/{folder_name12}", exist_ok=True)
 
 watchlist = pd.read_csv('../mcap-wise-all-nse-stocks/ohlc-charts/PDFs/watchlist.csv')
 
@@ -46,6 +54,10 @@ inConsolidationRN      = list(watchlist[watchlist['inConsolidationRN'].notna()][
 downTrendButGoodCP     = list(watchlist[watchlist['downTrendButGoodCP'].notna()]['downTrendButGoodCP'])
 myPort                 = list(watchlist[watchlist['myPort'].notna()]['myPort'])
 placeGTT               = list(watchlist[watchlist['placeGTT'].notna()]['placeGTT'])
+dw1                    = list(watchlist[watchlist['dw1'].notna()]['dw1'])
+dw2                    = list(watchlist[watchlist['dw2'].notna()]['dw2'])
+dw3                    = list(watchlist[watchlist['dw3'].notna()]['dw3'])
+dw4                    = list(watchlist[watchlist['dw4'].notna()]['dw4'])
 
 fileUrl ='https://assets.upstox.com/market-quote/instruments/exchange/complete.csv.gz'
 symboldf = pd.read_csv(fileUrl)
@@ -162,6 +174,54 @@ if __name__ == "__main__":
             download_image('2weekly', weekly_df, trading_symbol, folder_name8)
             download_image('1monthly', monthly_df, trading_symbol, folder_name8)
 
+    with Pool(processes=4) as pool:
+        results = pool.map(get_candle_data, dw1)
+
+    for result in results:
+        if result is not None:
+            trading_symbol, (hourly_df, daily_df, weekly_df, monthly_df) = result
+            # output[trading_symbol] = [weekly_df, monthly_df]
+            download_image('4hourly', hourly_df, trading_symbol, folder_name9)
+            download_image('3daily', daily_df, trading_symbol, folder_name9)
+            download_image('2weekly', weekly_df, trading_symbol, folder_name9)
+            download_image('1monthly', monthly_df, trading_symbol, folder_name9)
+
+    with Pool(processes=4) as pool:
+        results = pool.map(get_candle_data, dw2)
+
+    for result in results:
+        if result is not None:
+            trading_symbol, (hourly_df, daily_df, weekly_df, monthly_df) = result
+            # output[trading_symbol] = [weekly_df, monthly_df]
+            download_image('4hourly', hourly_df, trading_symbol, folder_name10)
+            download_image('3daily', daily_df, trading_symbol, folder_name10)
+            download_image('2weekly', weekly_df, trading_symbol, folder_name10)
+            download_image('1monthly', monthly_df, trading_symbol, folder_name10)
+
+    with Pool(processes=4) as pool:
+        results = pool.map(get_candle_data, dw3)
+
+    for result in results:
+        if result is not None:
+            trading_symbol, (hourly_df, daily_df, weekly_df, monthly_df) = result
+            # output[trading_symbol] = [weekly_df, monthly_df]
+            download_image('4hourly', hourly_df, trading_symbol, folder_name11)
+            download_image('3daily', daily_df, trading_symbol, folder_name11)
+            download_image('2weekly', weekly_df, trading_symbol, folder_name11)
+            download_image('1monthly', monthly_df, trading_symbol, folder_name11)
+
+    with Pool(processes=4) as pool:
+        results = pool.map(get_candle_data, dw4)
+
+    for result in results:
+        if result is not None:
+            trading_symbol, (hourly_df, daily_df, weekly_df, monthly_df) = result
+            # output[trading_symbol] = [weekly_df, monthly_df]
+            download_image('4hourly', hourly_df, trading_symbol, folder_name12)
+            download_image('3daily', daily_df, trading_symbol, folder_name12)
+            download_image('2weekly', weekly_df, trading_symbol, folder_name12)
+            download_image('1monthly', monthly_df, trading_symbol, folder_name12)
+
 
             
     # Specify the directory containing PNG images
@@ -173,6 +233,10 @@ if __name__ == "__main__":
     image_directory6 = f"ohlc-charts/{folder_name6}"
     image_directory7 = f"ohlc-charts/{folder_name7}"
     image_directory8 = f"ohlc-charts/{folder_name8}"
+    image_directory9 = f"ohlc-charts/{folder_name9}"
+    image_directory10 = f"ohlc-charts/{folder_name10}"
+    image_directory11 = f"ohlc-charts/{folder_name11}"
+    image_directory12 = f"ohlc-charts/{folder_name12}"
 
 
     # Specify the output PDF file
@@ -184,6 +248,10 @@ if __name__ == "__main__":
     output_pdf6 = f"ohlc-charts/PDFs/{folder_name6}.pdf"
     output_pdf7 = f"ohlc-charts/PDFs/{folder_name7}.pdf"
     output_pdf8 = f"ohlc-charts/PDFs/{folder_name8}.pdf"
+    output_pdf9 = f"ohlc-charts/PDFs/{folder_name9}.pdf"
+    output_pdf10 = f"ohlc-charts/PDFs/{folder_name10}.pdf"
+    output_pdf11 = f"ohlc-charts/PDFs/{folder_name11}.pdf"
+    output_pdf12 = f"ohlc-charts/PDFs/{folder_name12}.pdf"
 
 
     # CREATE PDF
@@ -198,6 +266,10 @@ if __name__ == "__main__":
     convert_images_to_pdf(image_directory6, output_pdf6)
     convert_images_to_pdf(image_directory7, output_pdf7)
     convert_images_to_pdf(image_directory8, output_pdf8)
+    convert_images_to_pdf(image_directory9, output_pdf9)
+    convert_images_to_pdf(image_directory10, output_pdf10)
+    convert_images_to_pdf(image_directory11, output_pdf11)
+    convert_images_to_pdf(image_directory12, output_pdf12)
 
 
     print("PDF creation completed!")
@@ -214,6 +286,10 @@ if __name__ == "__main__":
     loop.run_until_complete(sendit(output_pdf6))
     loop.run_until_complete(sendit(output_pdf7))
     loop.run_until_complete(sendit(output_pdf8))
+    loop.run_until_complete(sendit(output_pdf9))
+    loop.run_until_complete(sendit(output_pdf10))
+    loop.run_until_complete(sendit(output_pdf11))
+    loop.run_until_complete(sendit(output_pdf12))
 
     print("PDFs sent to Telegram!")
 
