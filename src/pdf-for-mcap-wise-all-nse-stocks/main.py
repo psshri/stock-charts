@@ -44,7 +44,7 @@ os.makedirs(f"ohlc-charts/{folder_name9}", exist_ok=True)
 os.makedirs(f"ohlc-charts/{folder_name10}", exist_ok=True)
 os.makedirs(f"ohlc-charts/{folder_name11}", exist_ok=True)
 os.makedirs(f"ohlc-charts/{folder_name12}", exist_ok=True)
-os.makedirs(f"ohlc-charts/{folder_name113}", exist_ok=True)
+os.makedirs(f"ohlc-charts/{folder_name13}", exist_ok=True)
 
 watchlist = pd.read_csv('../mcap-wise-all-nse-stocks/ohlc-charts/PDFs/watchlist.csv')
 
