@@ -97,24 +97,27 @@ def get_candle_data(trading_symbol):
         # hourly_df = hourly_df.iloc[::-1]
         print(trading_symbol)
         hourly_df = yf.download(trading_symbol+'.NS', period="3mo", interval="1h")
-        daily_data = getDailyData(instrument_key)
-        daily_df = pd.DataFrame(daily_data['data']['candles'])
-        daily_df.columns = ['Datetime', 'Open', 'High', 'Low', 'Close', 'Volume', 'NA']
-        daily_df['Datetime'] = pd.to_datetime(daily_df['Datetime'])
-        daily_df.set_index('Datetime', inplace=True)
-        daily_df = daily_df.iloc[::-1]
-        weekly_data = getWeeklyData(instrument_key)
-        weekly_df = pd.DataFrame(weekly_data['data']['candles'])
-        weekly_df.columns = ['Datetime', 'Open', 'High', 'Low', 'Close', 'Volume', 'NA']
-        weekly_df['Datetime'] = pd.to_datetime(weekly_df['Datetime'])
-        weekly_df.set_index('Datetime', inplace=True)
-        weekly_df = weekly_df.iloc[::-1] # reverse the df
-        monthly_data = getMonthlyData(instrument_key)
-        monthly_df = pd.DataFrame(monthly_data['data']['candles'])
-        monthly_df.columns = ['Datetime', 'Open', 'High', 'Low', 'Close', 'Volume', 'NA']
-        monthly_df['Datetime'] = pd.to_datetime(monthly_df['Datetime'])
-        monthly_df.set_index('Datetime', inplace=True)
-        monthly_df = monthly_df.iloc[::-1]
+        daily_df = yf.download(trading_symbol+'.NS', period="1y", interval="1d")
+        weekly_df = yf.download(trading_symbol+'.NS', period="5y", interval="1wk")
+        monthly_df = yf.download(trading_symbol+'.NS', period="10y", interval="1mo")
+        # daily_data = getDailyData(instrument_key)
+        # daily_df = pd.DataFrame(daily_data['data']['candles'])
+        # daily_df.columns = ['Datetime', 'Open', 'High', 'Low', 'Close', 'Volume', 'NA']
+        # daily_df['Datetime'] = pd.to_datetime(daily_df['Datetime'])
+        # daily_df.set_index('Datetime', inplace=True)
+        # daily_df = daily_df.iloc[::-1]
+        # weekly_data = getWeeklyData(instrument_key)
+        # weekly_df = pd.DataFrame(weekly_data['data']['candles'])
+        # weekly_df.columns = ['Datetime', 'Open', 'High', 'Low', 'Close', 'Volume', 'NA']
+        # weekly_df['Datetime'] = pd.to_datetime(weekly_df['Datetime'])
+        # weekly_df.set_index('Datetime', inplace=True)
+        # weekly_df = weekly_df.iloc[::-1] # reverse the df
+        # monthly_data = getMonthlyData(instrument_key)
+        # monthly_df = pd.DataFrame(monthly_data['data']['candles'])
+        # monthly_df.columns = ['Datetime', 'Open', 'High', 'Low', 'Close', 'Volume', 'NA']
+        # monthly_df['Datetime'] = pd.to_datetime(monthly_df['Datetime'])
+        # monthly_df.set_index('Datetime', inplace=True)
+        # monthly_df = monthly_df.iloc[::-1]
         return trading_symbol, (hourly_df, daily_df, weekly_df, monthly_df)
     except:
         print('Error in ', trading_symbol)

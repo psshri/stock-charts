@@ -240,18 +240,18 @@ if __name__ == "__main__":
 
 
     # Specify the output PDF file
-    output_pdf1 = f"ohlc-charts/PDFs/{folder_name1}.pdf"
-    output_pdf2 = f"ohlc-charts/PDFs/{folder_name2}.pdf"
-    output_pdf3 = f"ohlc-charts/PDFs/{folder_name3}.pdf"
-    output_pdf4 = f"ohlc-charts/PDFs/{folder_name4}.pdf"
-    output_pdf5 = f"ohlc-charts/PDFs/{folder_name5}.pdf"
-    output_pdf6 = f"ohlc-charts/PDFs/{folder_name6}.pdf"
-    output_pdf7 = f"ohlc-charts/PDFs/{folder_name7}.pdf"
-    output_pdf8 = f"ohlc-charts/PDFs/{folder_name8}.pdf"
-    output_pdf9 = f"ohlc-charts/PDFs/{folder_name9}.pdf"
-    output_pdf10 = f"ohlc-charts/PDFs/{folder_name10}.pdf"
-    output_pdf11 = f"ohlc-charts/PDFs/{folder_name11}.pdf"
-    output_pdf12 = f"ohlc-charts/PDFs/{folder_name12}.pdf"
+    output_pdf1 = f"ohlc-charts/PDFs/{folder_name1}1.pdf"
+    output_pdf2 = f"ohlc-charts/PDFs/{folder_name2}1.pdf"
+    output_pdf3 = f"ohlc-charts/PDFs/{folder_name3}1.pdf"
+    output_pdf4 = f"ohlc-charts/PDFs/{folder_name4}1.pdf"
+    output_pdf5 = f"ohlc-charts/PDFs/{folder_name5}1.pdf"
+    output_pdf6 = f"ohlc-charts/PDFs/{folder_name6}1.pdf"
+    output_pdf7 = f"ohlc-charts/PDFs/{folder_name7}1.pdf"
+    output_pdf8 = f"ohlc-charts/PDFs/{folder_name8}1.pdf"
+    output_pdf9 = f"ohlc-charts/PDFs/{folder_name9}1.pdf"
+    output_pdf10 = f"ohlc-charts/PDFs/{folder_name10}1.pdf"
+    output_pdf11 = f"ohlc-charts/PDFs/{folder_name11}1.pdf"
+    output_pdf12 = f"ohlc-charts/PDFs/{folder_name12}1.pdf"
 
 
     # CREATE PDF
