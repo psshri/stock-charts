@@ -31,6 +31,7 @@ folder_name9 = "dw1"
 folder_name10 = "dw2"
 folder_name11 = "dw3"
 folder_name12 = "dw4"
+folder_name13 = "invOnWTF"
 os.makedirs(f"ohlc-charts/{folder_name1}", exist_ok=True)
 os.makedirs(f"ohlc-charts/{folder_name2}", exist_ok=True)
 os.makedirs(f"ohlc-charts/{folder_name3}", exist_ok=True)
@@ -43,6 +44,7 @@ os.makedirs(f"ohlc-charts/{folder_name9}", exist_ok=True)
 os.makedirs(f"ohlc-charts/{folder_name10}", exist_ok=True)
 os.makedirs(f"ohlc-charts/{folder_name11}", exist_ok=True)
 os.makedirs(f"ohlc-charts/{folder_name12}", exist_ok=True)
+os.makedirs(f"ohlc-charts/{folder_name113}", exist_ok=True)
 
 watchlist = pd.read_csv('../mcap-wise-all-nse-stocks/ohlc-charts/PDFs/watchlist.csv')
 
@@ -58,6 +60,7 @@ dw1                    = list(watchlist[watchlist['dw1'].notna()]['dw1'])
 dw2                    = list(watchlist[watchlist['dw2'].notna()]['dw2'])
 dw3                    = list(watchlist[watchlist['dw3'].notna()]['dw3'])
 dw4                    = list(watchlist[watchlist['dw4'].notna()]['dw4'])
+invOnWTF               = list(watchlist[watchlist['invOnWTF'].notna()]['invOnWTF'])
 
 fileUrl ='https://assets.upstox.com/market-quote/instruments/exchange/complete.csv.gz'
 symboldf = pd.read_csv(fileUrl)
@@ -222,6 +225,18 @@ if __name__ == "__main__":
             download_image('2weekly', weekly_df, trading_symbol, folder_name12)
             download_image('1monthly', monthly_df, trading_symbol, folder_name12)
 
+    with Pool(processes=4) as pool:
+        results = pool.map(get_candle_data, invOnWTF)
+
+    for result in results:
+        if result is not None:
+            trading_symbol, (hourly_df, daily_df, weekly_df, monthly_df) = result
+            # output[trading_symbol] = [weekly_df, monthly_df]
+            download_image('4hourly', hourly_df, trading_symbol, folder_name13)
+            download_image('3daily', daily_df, trading_symbol, folder_name13)
+            download_image('2weekly', weekly_df, trading_symbol, folder_name13)
+            download_image('1monthly', monthly_df, trading_symbol, folder_name13)
+
 
             
     # Specify the directory containing PNG images
@@ -237,6 +252,7 @@ if __name__ == "__main__":
     image_directory10 = f"ohlc-charts/{folder_name10}"
     image_directory11 = f"ohlc-charts/{folder_name11}"
     image_directory12 = f"ohlc-charts/{folder_name12}"
+    image_directory13 = f"ohlc-charts/{folder_name13}"
 
 
     # Specify the output PDF file
@@ -252,6 +268,7 @@ if __name__ == "__main__":
     output_pdf10 = f"ohlc-charts/PDFs/{folder_name10}.pdf"
     output_pdf11 = f"ohlc-charts/PDFs/{folder_name11}.pdf"
     output_pdf12 = f"ohlc-charts/PDFs/{folder_name12}.pdf"
+    output_pdf13 = f"ohlc-charts/PDFs/{folder_name13}.pdf"
 
 
     # CREATE PDF
@@ -270,6 +287,7 @@ if __name__ == "__main__":
     convert_images_to_pdf(image_directory10, output_pdf10)
     convert_images_to_pdf(image_directory11, output_pdf11)
     convert_images_to_pdf(image_directory12, output_pdf12)
+    convert_images_to_pdf(image_directory13, output_pdf13)
 
 
     print("PDF creation completed!")
@@ -290,6 +308,7 @@ if __name__ == "__main__":
     loop.run_until_complete(sendit(output_pdf10))
     loop.run_until_complete(sendit(output_pdf11))
     loop.run_until_complete(sendit(output_pdf12))
+    loop.run_until_complete(sendit(output_pdf13))
 
     print("PDFs sent to Telegram!")
 
