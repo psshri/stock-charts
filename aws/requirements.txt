@@ -1,0 +1,10 @@
+mplfinance
+matplotlib
+telegram
+asyncio
+nest_asyncio
+pandas
+requests
+datetime
+yfinance
+reportlab

@@ -5,6 +5,7 @@
 
 import pandas as pd
 import requests
+# from botocore.vendored import requests
 import time
 from datetime import datetime, timedelta
 import json
